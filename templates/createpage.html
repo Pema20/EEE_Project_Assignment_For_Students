@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>CreatePage</title>
+	<script src=
+"https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+	</script>
+<style>
+		input.ng-dirty {
+			background-color: lightblue;
+		}
+		
+		input.ng-valid {
+			background-color: lightgreen;
+		}
+		
+		span,
+		p {
+			color: red;
+		}
+		body{
+			background-color: lightblue;
+			background-size: 280%;
+			background-position: -400px 0px;
+		}
+		div.main{
+			width: 400px;
+			margin: 100px auto 0px auto;
+		}
+        h1{
+			text-align: center;
+			padding: 20px;
+			font-family: sans-serif;
+		}
+		div.formname{
+        background-color: rgba(0, 0, 0, 0.5);
+		width: 100%;
+		font-size: 18px;
+		border-radius: 10px;
+		border: 1px soid rgba(255, 255, 255, 0.3);
+		box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+		color: #fff;
+		}
+		form#formname{
+			margin: 40px;
+		}
+		label{
+			font-family: sans-serif;
+			font-size: 18px;
+			font-style: italic;
+
+		}
+		input#style{
+			width: 300px;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			outline: 0;
+			background-color: #fff;
+			box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3);
+			padding: 7px;
+
+
+		}
+		input#submit{
+			width: 200px;
+			padding: 7px;
+			font-size: 16px;
+			font-family: sans-serif;
+			font-weight: 600;
+			border-radius: 3px;
+			background-color :green;
+			color: #fff;
+			cursor: pointer;
+			border: 1px 1px 5px rgba(0, 0, 0, 0.3) ;
+			margin-bottom: 20px;
+			
+		}
+		label,span,h1{
+			text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+		}
+		
+		
+	</style>
+</head>
+
+<body ng-app="myApp"
+	ng-controller="myctrl"
+	>
+	<div class="main">
+    <div class="formname">
+	<h1>Registration Form</h1>
+	<form action='' method = "POST" name="formname" id="formname" >
+       
+		<label>Employee ID :</label>
+		<br>
+		<input type="integer"
+			ng-model="employee_id"
+			id="style"
+			name="employee_id"
+			ng-minlength=3
+			ng-required="true"
+			ng-pattern="/^[0-9]*$/">
+			<span ng-show=
+"formname.employee_id.$touched && formname.employee_id.$error.required">
+				<br>ID is required.
+			</span>
+			<span ng-show=
+"formname.employee_id.$error.minlength">
+				<br>Minimum 3 characters required.
+			</span>
+			<span ng-show=
+"formname.employee_id.$error.pattern">
+				<br>ID can have only Numbers.
+			</span>
+		<br>
+		<br>
+		<label>Employee Name :</label><br>
+		<input type="text"
+			ng-model="name"
+			id="style"
+			name="name"
+			ng-minlength=3
+			ng-required="true"
+			ng-pattern="/^[\w\s]*$/">
+			<span ng-show=
+"formname.name.$touched && formname.name.$error.required">
+<br>Name is required.
+			</span>
+			<span ng-show=
+"formname.name.$error.minlength">
+<br>Minimum 3 characters required.
+			</span>
+			<span ng-show=
+"formname.name.$error.pattern">
+<br>Name can have only alphabets.
+			</span>
+		<br>
+		<br>
+		<label>Gender :</label><br>
+		&nbsp;&nbsp;&nbsp;
+		<input type="radio"
+			name="gender"
+			ng-model="gender"
+			id="male"
+			value="Male"
+			ng-required="true">
+		<span id="male" style="color: black;">Male</span>
+		<input type="radio"
+			name="gender"
+			id="female"
+			ng-model="gender"
+			value="Female"
+			ng-required="true">
+		<span id="female" style="color: black;" >Female</span>
+		<br>
+		<br>
+		<label>Position of Employee:</label><br>
+		<input type="text"
+			name="position"
+			id="style"
+			ng-model="position"
+			ng-required="true">
+			
+			<span ng-show=
+"formname.position.$touched && formname.position.$error.required">
+<br>Position is required.
+			</span>
+			
+		<br>
+		<br>
+		<label>Age :</label><br>
+		<input type="integer"
+			name="age"
+			id="style"
+			ng-model="age"
+			ng-required="true"
+			ng-pattern="/^(?:1[8-9]|[2-5][0-9]|60)$/">
+			
+			<span ng-show=
+"formname.age.$touched && formname.age.$error.required">
+<br>Age is required.
+			</span>
+			<span ng-show=
+"formname.age.$error.pattern">
+<br>Age requirement does'nt meets.
+			</span>
+			
+		<br>
+		<br>
+		<label>Phone :</label><br>
+		<input type="tel"
+			name="phone"
+			ng-model="phone"
+			id="style"
+			ng-pattern="/^[0-9]*$/"
+			ng-required="true"
+			ng-minlength=6
+			ng-maxlength=10>
+			<span ng-show=
+"formname.phone.$touched && formname.phone.$error.required">
+				<br>Phone is required.
+			</span>
+			<span ng-show="formname.phone.$error.minlength">
+				<br>Minimum 6 characters required.
+			</span>
+			<span ng-show=
+"formname.phone.$error.pattern">
+<br>Phone number can have only digits.
+			</span>
+			<span ng-show=
+"formname.phone.$error.maxlength">
+<br>Minimum 10 characters required.
+			</span>
+		<br>
+        <br>
+
+		<label>Email :</label><br>
+		<input type="email"
+			name="email"
+			id="style"
+			ng-model="email"
+			ng-required="true"
+			ng-pattern="/^[a-z0-9/_$#%]+@[a-z]+[.]+[a-z]+$/">
+			<span ng-show=
+"formname.email.$touched && formname.email.$error.required">
+<br>Email is required.
+			</span>
+			<span ng-show=
+"formname.email.$error.pattern">
+<br>Email has to be in format abc@gmail.com.
+			</span>
+		<br>
+		<br><br>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<input type="submit"
+			name="submit"
+			id="submit"
+			ng-click="calculate()"
+			ng-disabled="formname.$invalid" >
+			
+	</form>
+		
+	<script type="text/javascript">
+		var app = angular.module('myApp', []);
+		app.controller('myctrl', function($scope) {
+			$scope.value = 0;
+
+			$scope.calculate = function() {
+				$scope.value += 1;
+				
+				
+			}
+		});
+	</script>
+	</div><!--end formname-->
+	</div><!--end main-->
+</body>
+</html>

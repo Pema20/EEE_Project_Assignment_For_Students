@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>models.py</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #6a8759;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+models.py</font>
+</center></td></tr></table>
+<pre><span class="s0">from </span><span class="s1">flask </span><span class="s0">import </span><span class="s1">Flask</span>
+<span class="s0">from </span><span class="s1">flask </span><span class="s0">import </span><span class="s1">SQLAlchemy</span>
+
+
+<span class="s1">db= SQLAlchemy()</span>
+
+<span class="s0">class </span><span class="s1">Employee(db.Model):</span>
+    <span class="s1">__tablename__ = </span><span class="s2">&quot;Employee&quot;</span>
+
+    <span class="s1">id = db.Column(db.Integer</span><span class="s0">, </span><span class="s1">primary_key=</span><span class="s0">True</span><span class="s1">)</span>
+
+    <span class="s1">employee_id=db.column(db.Integer()</span><span class="s0">,</span><span class="s1">unique=</span><span class="s0">True</span><span class="s1">)</span>
+
+    <span class="s1">name = db.Column(db.String())</span>
+    <span class="s1">age = db.Column(db.Integer())</span>
+    <span class="s1">position = db.Column(db.String())</span>
+
+    <span class="s0">def </span><span class="s1">__init__(self</span><span class="s0">, </span><span class="s1">employee_id</span><span class="s0">, </span><span class="s1">name</span><span class="s0">, </span><span class="s1">age</span><span class="s0">, </span><span class="s1">position):</span>
+        <span class="s1">self.employee_id = employee_id</span>
+        <span class="s1">self.name = name</span>
+        <span class="s1">self.age = age</span>
+        <span class="s1">self.position = position</span>
+
+    <span class="s0">def </span><span class="s1">__repr__(self):</span>
+     <span class="s0">return </span><span class="s2">f&quot;</span><span class="s0">{</span><span class="s1">self.name</span><span class="s0">}</span><span class="s2">:</span><span class="s0">{</span><span class="s1">self.employee_id</span><span class="s0">}</span><span class="s2">&quot;</span>
+</pre>
+</body>
+</html>

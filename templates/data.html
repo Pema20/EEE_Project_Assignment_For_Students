@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<title>DataPage</title>
+</head>
+<style >
+	body{
+			background-color: lightblue;
+			background-size: 280%;
+			background-position: -400px 0px;
+		}
+		div.formname{
+        background-color: rgba(0, 0, 0, 0.5);
+		width: 100%;
+		font-size: 18px;
+		border-radius: 10px;
+		border: 1px soid rgba(255, 255, 255, 0.3);
+		box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3);
+		color: #fff;
+		}
+		div.main{
+			width: 400px;
+			margin: 100px auto 0px auto;
+		}
+		h1{
+			text-align: center;
+			padding: 20px;
+			font-family: sans-serif;
+		}
+		p#style{
+			width: 300px;
+			border: 1px solid #ddd;
+			border-radius: 3px;
+			outline: 0;
+			background-color: #fff;
+			box-shadow: inset 1px 1px 5px rgba(0, 0, 0, 0.3);
+			padding: 7px;
+
+
+		}
+		label{
+			font-family: sans-serif;
+			font-size: 18px;
+			font-style: italic;
+
+		}
+		form#formname{
+			margin: 40px;
+		}
+</style>
+<body>
+	<div class="main">
+    <div class="formname">
+    	<h1>Employee details</h1>
+	<form name="formname" id="formname">
+
+<label>Id</label>
+<p id="style">{{employee.employee_id}}</p><hr>
+
+<label>Name</label>
+<p id="style">{{employee.name}}</p><hr>
+
+<label>Gender</label>
+<p id="style">{{employee.gender}}</p><hr>
+
+<label>Age</label>
+<p id="style">{{employee.age}}</p><hr>
+
+<label>Position</label>
+<p id="style">{{employee.position}}</p><hr>
+
+<label>Phone</label>
+<p id="style">{{employee.phone}}</p><hr>
+
+<label>Email</label>
+<p id="style">{{employee.email}}</p><hr>
+    </form >
+</div>
+</div>
+</body>
+</html>
+
